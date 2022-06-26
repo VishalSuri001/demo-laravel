@@ -24,6 +24,7 @@ Route::get('/dashboard', function () {
 
 Route::controller(AdminController::class)->group(function(){
     Route::get('/admin-logout', 'destroy')->name('admin.logout');
+    Route::get('/admin-profile', 'profile')->name('admin.profile');
 });
 
 require __DIR__.'/auth.php';
