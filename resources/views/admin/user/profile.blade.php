@@ -8,9 +8,7 @@
                         <br/>
                         <center>
                         <img class="rounded-circle avatar-xl"
-                        src="{{ !empty($userData->profile_image)
-                            ? asset('upload/admin/users/profile_images/'.$userData->profile_image)
-                            : asset('backend/assets/images/default/user.png') }}"
+                        src="{{ $userImage }}"
                         alt="Card image cap">
                         </center>
                         <div class="card-body">

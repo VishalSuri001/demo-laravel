@@ -54,7 +54,7 @@
                                     <label for="show-profile-img" class="col-sm-2 col-form-label"> </label>
                                     <div class="col-sm-10">
                                         <img id="show-profile-img" class="rounded avatar-lg"
-                                            src="{{ asset('backend/assets/images/small/img-5.jpg') }}"
+                                            src="{{ asset($userImage) }}"
                                             alt="Card image cap">
                                     </div>
                                 </div>

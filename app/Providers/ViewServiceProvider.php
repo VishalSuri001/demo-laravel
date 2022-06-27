@@ -31,7 +31,10 @@ class ViewServiceProvider extends ServiceProvider
             if (Auth::check()) {
                 $loggedUserId = Auth::user()->id;
                 $userData = User::find($loggedUserId);
-                $view->with('userData', $userData);
+                $view->with('userData', $userData);;
+                $view->with('userImage', $userData->profile_image
+                    ? 'upload/admin/users/profile_images/'.$userData->profile_image
+                    : 'backend/assets/images/default/user.png');
             } else {
                 $view->with('userData', null);
             }
