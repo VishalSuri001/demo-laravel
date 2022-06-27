@@ -28,16 +28,12 @@ class AdminController extends Controller
 
     public function profile()
     {
-        $loggedUserId = Auth::user()->id;
-        $userData = User::find($loggedUserId);
-        return view('admin.user.profile', ['userData' => $userData]);
+        return view('admin.user.profile');
     }
 
     public function editProfile()
     {
-        $loggedUserId = Auth::user()->id;
-        $userData = User::find($loggedUserId);
-        return view('admin.user.edit_profile', ['userData' => $userData]);
+        return view('admin.user.edit_profile');
     }
 
     public function StoreProfile(Request $request){

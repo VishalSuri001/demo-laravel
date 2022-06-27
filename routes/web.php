@@ -22,7 +22,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 
-Route::controller(AdminController::class)->group(function(){
+Route::controller(AdminController::class)->middleware(['auth', 'verified'])->group(function(){
     Route::get('/admin-logout', 'destroy')->name('admin.logout');
     Route::get('/admin-profile', 'profile')->name('admin.profile');
     Route::get('/admin/edit-profile', 'editProfile')->name('admin.edit_profile');
