@@ -7,6 +7,11 @@
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title">Change Password Page </h4><br><br>
+                            @if(count($errors))
+                                @foreach ($errors->all() as $error)
+                                    <p class="alert alert-danger alert-dismissible fade show"> {{ $error}} </p>
+                                @endforeach
+                            @endif
 
                             <form method="post" action="{{ route('admin.update_password') }}">
                                 @csrf
