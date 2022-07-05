@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Admin\SliderController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,12 +24,18 @@ Route::get('/dashboard', function () {
 
 
 Route::controller(AdminController::class)->middleware(['auth', 'verified'])->group(function(){
-    Route::get('/admin-logout', 'destroy')->name('admin.logout');
-    Route::get('/admin-profile', 'profile')->name('admin.profile');
-    Route::get('/admin/edit-profile', 'editProfile')->name('admin.edit_profile');
-    Route::post('/admin/edit-profile', 'storeProfile')->name('admin.update_profile');
-    Route::get('/admin/change-password', 'changePassword')->name('admin.change_password');
-    Route::post('/admin/change-password', 'updatePassword')->name('admin.update_password');
+    Route::get('/logout', 'destroy')->name('admin.logout');
+    Route::get('/profile', 'profile')->name('admin.profile');
+    Route::get('/edit-profile', 'editProfile')->name('admin.edit_profile');
+    Route::post('/edit-profile', 'storeProfile')->name('admin.update_profile');
+    Route::get('/change-password', 'changePassword')->name('admin.change_password');
+    Route::post('/change-password', 'updatePassword')->name('admin.update_password');
+});
+
+
+Route::controller(SliderController::class)->group(function(){
+    Route::get('/home/slider', 'homeSlider')->name('home.slider');
+    Route::post('/update/slider', 'UpdateSlider')->name('update.slider');
 });
 
 require __DIR__.'/auth.php';
